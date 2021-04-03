@@ -15,8 +15,8 @@
         <h3><i>I hope you enjoy my portfolio!</i></h3>
     </div>
 </div>
-
-<div>
+<div id="load">Loading...</div>
+<div id="contents">
 <!--Walking Through Scenes Digital Media-->
     <div class="centered" style="background-color: #FCE762">
         <h1>Traveling the World</h1>
@@ -107,5 +107,19 @@
         </video>
     </div>
 </div>
+<script>
+    document.onreadystatechange = function () {
+        var state = document.readyState
+        if (state === 'interactive') {
+            document.getElementById('contents').style.visibility="hidden";
+        } else if (state === 'complete') {
+            setTimeout(function(){
+                document.getElementById('interactive');
+                document.getElementById('load').style.visibility="hidden";
+                document.getElementById('contents').style.visibility="visible";
+            },1000);
+        }
+    }
+</script>
 </body>
 </html>
